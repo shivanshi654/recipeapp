@@ -3,7 +3,7 @@ pipeline {
 
 
    environment {
-        DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
+        DOCKER_HUB_CREDENTIALS = 'docker-hub-credentials'
         DOCKER_IMAGE_NAME = 'shivanshipatel/recipeapp'
         DOCKER_IMAGE_TAG = 'latest'
     }
