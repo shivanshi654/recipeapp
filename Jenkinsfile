@@ -33,14 +33,23 @@ pipeline {
 
        stage('Push to Docker Hub') {
             steps {
-                script {
-                    // Login to Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
-                        // Push the Docker image to Docker Hub
-                        docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
-                    }
-                }
-            }
+                  script {
+    echo "DOCKER_IMAGE_NAME: ${DOCKER_IMAGE_NAME}"
+
+    echo "DOCKER_IMAGE_TAG: ${DOCKER_IMAGE_TAG}"
+
+    echo "DOCKER_HUB_CREDENTIALS: ${DOCKER_HUB_CREDENTIALS}"
+
+    // Login to Docker Hub
+
+    docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
+
+        // Push the Docker image to Docker Hub
+
+        docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
+
+    }
+}
         }
     }
 
