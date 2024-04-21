@@ -25,6 +25,7 @@ pipeline {
                 script {
                     // Package the Docker image (not needed for this scenario but can be useful for additional steps)
                     // You can add any additional packaging steps here if needed
+                    echo "Creating Jenkins file"
                 }
             }
         }
