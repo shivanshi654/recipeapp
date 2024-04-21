@@ -14,10 +14,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                     // Login to Docker Hub
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
                     docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", '-f Dockerfile .')
-                    }
                 }
             }
         }
